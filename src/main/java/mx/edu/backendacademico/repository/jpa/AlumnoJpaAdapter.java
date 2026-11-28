@@ -32,7 +32,7 @@ public class AlumnoJpaAdapter implements AlumnoRepository {
             throw ex; //omite temporalmente la traducción a MatriculaDuplicadaException
 
             // Traduce únicamente la restricción conocida; otras fallas conservan su causa.
-            Throwable causa = ex;
+            /*Throwable causa = ex;
             while (causa != null) {
                 if (causa instanceof ConstraintViolationException restriccion &&
                     "uk_alumnos_matricula".equalsIgnoreCase(restriccion.getConstraintName())) {
@@ -40,7 +40,7 @@ public class AlumnoJpaAdapter implements AlumnoRepository {
                 }
                 causa = causa.getCause();
             }
-            throw ex;
+            throw ex;*/
         }
     }
 
