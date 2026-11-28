@@ -37,8 +37,10 @@ public class AlumnoController {
     // El servicio asigna identidad; ResponseEntity publica 201 y Location.
     @PostMapping
     public ResponseEntity<AlumnoResponse> crear(@RequestBody @Valid CrearAlumnoRequest request) {
-        var creado = service.crear(request.matricula(), request.nombre(), request.correo());
-        return ResponseEntity.created(URI.create("/api/v1/alumnos/" + creado.id())).body(AlumnoMapper.toResponse(creado));
+        //var creado = service.crear(request.matricula(), request.nombre(), request.correo());
+        //return ResponseEntity.created(URI.create("/api/v1/alumnos/" + creado.id())).body(AlumnoMapper.toResponse(creado));
+
+        return ResponseEntity.ok(AlumnoMapper.toResponse(creado));
     }
 
     // PUT sustituye todos los campos de la representación editable.
