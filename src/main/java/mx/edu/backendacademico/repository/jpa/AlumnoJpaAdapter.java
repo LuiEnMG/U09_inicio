@@ -29,7 +29,7 @@ public class AlumnoJpaAdapter implements AlumnoRepository {
             return repository.saveAndFlush(new AlumnoEntity(alumno)).toDomain();
         } catch (DataIntegrityViolationException ex) {
             //cambio temporal
-            //throw ex; omite temporalmente la traducción a MatriculaDuplicadaException
+            throw ex; //omite temporalmente la traducción a MatriculaDuplicadaException
 
             // Traduce únicamente la restricción conocida; otras fallas conservan su causa.
             Throwable causa = ex;
