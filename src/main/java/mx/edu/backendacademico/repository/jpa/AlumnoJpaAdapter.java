@@ -28,6 +28,9 @@ public class AlumnoJpaAdapter implements AlumnoRepository {
             // Flush envía SQL antes de abandonar este método y permite traducir el conflicto.
             return repository.saveAndFlush(new AlumnoEntity(alumno)).toDomain();
         } catch (DataIntegrityViolationException ex) {
+            //cambio temporal
+            //throw ex; omite temporalmente la traducción a MatriculaDuplicadaException
+
             // Traduce únicamente la restricción conocida; otras fallas conservan su causa.
             Throwable causa = ex;
             while (causa != null) {
